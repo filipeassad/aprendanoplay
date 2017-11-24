@@ -1,0 +1,50 @@
+*{
+	font-family: 'Roboto', sans-serif;
+}
+
+.inline-middle{	
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.inline-top{	
+	display: inline-block;
+	vertical-align: top;
+}
+
+.borda-trans{
+	border: 0px solid transparent;
+	border-radius: 15px;
+}
+
+input[type=text]{
+	width: 400px;
+	height: 50px;
+}
+
+button{
+	height: 50px;
+}
+
+select{
+	width: 400px;
+	height: 50px;
+}
+
+.item-lista{
+	font-size: 16px;
+	height: 40px;
+	cursor: pointer;
+}
+
+.item-lista:hover {
+	background: #d3d3d3;
+}
+
+
+.item-lista-selecionado{
+	font-size: 16px;
+	height: 40px;
+	background: #FF6347;
+	cursor: pointer;
+}

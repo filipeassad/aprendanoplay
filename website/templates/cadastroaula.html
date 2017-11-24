@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<title>Aprenda no Play</title>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/basico.css' %}">
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+	<script src="{% static 'scripts/vglobal.js' %}"></script>
+	<script src="{% static 'scripts/ng_application_ctrl.js' %}"></script>	
+	<script src="{% static 'scripts/ng_cadastroaula_ctrl.js' %}"></script>
+</head>
+<body ng-app="myApp">
+
+	<div class="container-fluid">
+
+		{% include "subtemplates/topoadm.html" %}
+		
+		<div class="row" style="background-color: #FF6347; height: 60px;">
+			<h1 class="inline-middle" style="text-align: left; color: #FFFFFF; margin: 0; margin-left: 20px; ">CADASTRO DE AULA</h1>
+			<div class="inline-middle" style="height: 100%;"></div>
+		</div>
+
+		<div class="row" ng-controller="CadastroAulaCtrl" style="margin-bottom: 20px;">
+			<div class="col-md-2"></div>
+			<div class="col-md-8" style="text-align: right;">  
+					
+					<div style="margin-top: 10px; text-align: left; font-size: 18px;">Selecione um Curso:</div>
+
+					<div style="width: 100%;text-align: left; margin-top: 10px; background: #2F4F4F; height: 60px;">
+						
+						<div class="inline-middle" style="width: 20%; color: white; font-size: 18px; margin-left: 10px;">Nome Curso</div>
+						<div class="inline-middle" style="width: 20%; color: white; font-size: 18px;">Professor</div>
+						<div class="inline-middle" style="width: 55%; color: white; font-size: 18px;">Descrição</div>
+						<div class="inline-middle" style="height: 100%;"></div>
+
+					</div>
+
+					<div style="width: 100%; overflow: auto; height: 400px; text-align: left; border: 1px solid #2F4F4F;">
+
+						<div style="width: 100%;" ng-click="selecionaCurso(cur)" class="{$cur.cla$}" ng-repeat="cur in cursos">
+
+							<div class="inline-middle" style="width: 20%; margin-left: 10px;">{$cur.nome$}</div>
+							<div class="inline-middle" style="width: 20%;">{$cur.perfil.nome$}</div>
+							<div class="inline-middle" style="width: 55%;">{$cur.descricao$}</div>
+							<div class="inline-middle" style="height: 100%;"></div>
+							
+						</div>
+
+					</div>
+
+					<div style="margin-top: 10px; text-align: left;">
+						<div style="width: 150px; text-align: right; font-size: 20px;" class="inline-middle">Módulo:</div>
+						<select id="combo_curso" ng-model="moduloSelecionado" class="inline-middle" ng-options="modulo.nome for modulo in modulos"></select>
+					</div>
+
+					<div style="margin-top: 10px; text-align: left;">						
+						<div style="width: 150px; text-align: right; font-size: 20px;" class="inline-middle">Nome:</div>
+						<input type="text" name="nome" class="inline-middle" ng-model="nome">
+					</div>
+
+					<div style="margin-top: 10px; text-align: left;">
+						<div style="width: 150px; text-align: right; font-size: 20px;" class="inline-middle">Url Vimeo:</div>
+						<input type="text" name="url" class="inline-middle" ng-model="urlVideo">
+					</div>
+
+					<div style="margin-top: 10px; text-align: left;">						
+						<div style="width: 150px; text-align: right; font-size: 20px;" class="inline-middle">Descrição:</div>
+						<textarea rows="6" cols="100" name="descricao" class="inline-middle" ng-model="descricao"></textarea>
+					</div>
+
+					<button ng-click="cadastraAula()" style="font-size: 20px; padding: 10px; border: 1px solid #FF6347; color: #FF6347;">Cadastrar</button>
+
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+
+	</div>
+
+</body>
+</html>
