@@ -41,10 +41,24 @@ select{
 	background: #d3d3d3;
 }
 
-
 .item-lista-selecionado{
 	font-size: 16px;
 	height: 40px;
 	background: #FF6347;
+	cursor: pointer;
+}
+
+.item-menu{
+	padding: 10px;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.item-menu:hover {
+	color: #D2B48C;
+}
+
+.item-menu-selecionado{
+	color: #FF6347;
 	cursor: pointer;
 }

@@ -17,7 +17,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
 	<script src="{% static 'scripts/vglobal.js' %}"></script>
+	<script type="text/javascript">
+		telaAtual = "Cadastro";
+	</script>
 	<script src="{% static 'scripts/ng_application_ctrl.js' %}"></script>	
+	<script src="{% static 'scripts/ng_topoadm_ctrl.js' %}"></script>
 	<script src="{% static 'scripts/ng_cadastroaula_ctrl.js' %}"></script>
 </head>
 <body ng-app="myApp">
@@ -26,8 +30,8 @@
 
 		{% include "subtemplates/topoadm.html" %}
 		
-		<div class="row" style="background-color: #FF6347; height: 60px;">
-			<h1 class="inline-middle" style="text-align: left; color: #FFFFFF; margin: 0; margin-left: 20px; ">CADASTRO DE AULA</h1>
+		<div class="row" style="background-color: #FF6347; height: 40px;">
+			<h1 class="inline-middle" style="text-align: left; color: #FFFFFF; margin: 0; margin-left: 20px; font-size: 20px; ">CADASTRO DE AULA</h1>
 			<div class="inline-middle" style="height: 100%;"></div>
 		</div>
 
@@ -46,7 +50,7 @@
 
 					</div>
 
-					<div style="width: 100%; overflow: auto; height: 400px; text-align: left; border: 1px solid #2F4F4F;">
+					<div style="width: 100%; overflow: auto; height: 15em; text-align: left; border: 1px solid #2F4F4F;">
 
 						<div style="width: 100%;" ng-click="selecionaCurso(cur)" class="{$cur.cla$}" ng-repeat="cur in cursos">
 
