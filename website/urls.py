@@ -5,4 +5,5 @@ from .import views
 
 urlpatterns = [
 	url(r'^cadastroaula', views.cadastroaula),
+	url(r'^capivara_adm', views.capivaraadm),
 ]

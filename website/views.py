@@ -17,3 +17,10 @@ def cadastroaula(request):
 	if request.user.is_authenticated():
 		logado = "sim"
 	return render(request, 'cadastroaula.html', {'logado':logado})
+
+@login_required
+def capivaraadm(request):
+	logado = "nao"
+	if request.user.is_authenticated():
+		logado = "sim"
+	return render(request, 'adm_aprenda.html', {'logado':logado})

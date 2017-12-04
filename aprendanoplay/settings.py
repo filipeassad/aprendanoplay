@@ -90,8 +90,8 @@ DATABASES = {
         'NAME': 'aprendanoplay_db',
         # 'NAME': os.path.join(BASE_DIR, 'mydb'),
         'USER': 'postgres',
-        #'PASSWORD': 'filipe',
-        'PASSWORD': 'postgres',
+        'PASSWORD': 'filipe',
+        #'PASSWORD': 'postgres',
         'HOST': 'localhost',
         'PORT': '5432', # 8000 is default
     }
