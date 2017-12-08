@@ -62,3 +62,46 @@ select{
 	color: #FF6347;
 	cursor: pointer;
 }
+
+.info-item{
+	width: 250px;
+	height: 150px;
+	margin: 10px 10px; 
+	border: 1px solid transparent; 
+	border-radius: 5px; 
+	background: #343a40;
+	color: #FFFFFF;
+	padding: 10px;
+}
+
+.btn-item{
+	width: 200px;
+	height: 80px;
+	margin: 10px 10px; 
+	border: 1px solid transparent; 
+	border-radius: 5px; 
+	background: #343a40;
+	color: #FFFFFF;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.botao{
+	border: 1px solid #343a40; 
+	background: #FFFFFF;
+	display: block;
+	cursor: pointer;
+}
+
+.caixa-selecao{
+	border: 1px solid #343a40; 
+	margin-left: 20px;
+}
+
+.caixa-reproducao{
+	display: block;
+	border: 1px solid #343a40;
+	margin-left: 20px;
+	margin-top: 30px;
+
+}

@@ -1,0 +1,69 @@
+{% load staticfiles %}
+<script src="{% static 'scripts/ng_admcadastros_ctrl.js' %}"></script>
+<div class="row" style="width: 100%; display: block;" ng-controller="AdmCadastrosCtrl as cadastros">
+	
+	<div style="margin-left: 20px; font-size: 40px;">Gerenciador de Cursos, Módulos e Aulas</div>
+	<div style="margin: 0 20px; border-top: 1px solid #DCDCDC;"></div>
+
+	<div style="margin-top: 30px; font-size: 30px; margin-left: 20px;">Curso:</div>
+
+	<div style="width: 100%; text-align: left; margin-top: 30px; padding-left: 20px;">
+
+		<div class="inline-middle btn-item" ng-click="cadastros.cadastroCur()">
+
+			<div class="inline-middle" style="font-size: 20px;">Cadastrar Curso</div>		
+			<div class="inline-middle" style="height: 100%;"></div>
+
+		</div>
+
+		<div class="inline-middle btn-item">
+
+			<div class="inline-middle" style="font-size: 20px;">Listar Curso</div>			
+			<div class="inline-middle" style="height: 100%;"></div>
+
+		</div>
+
+	</div>
+
+
+	<div style="margin-top: 30px; font-size: 30px; margin-left: 20px;">Módulo:</div>
+	
+	<div style="width: 100%; text-align: left; margin-top: 30px; padding-left: 20px;">
+
+		<div class="inline-middle btn-item" ng-click="cadastros.cadastroMod()">
+
+			<div class="inline-middle" style="font-size: 20px;">Cadastrar Módulo</div>			
+			<div class="inline-middle" style="height: 100%;"></div>
+
+		</div>
+
+		<div class="inline-middle btn-item">
+
+			<div class="inline-middle" style="font-size: 20px;">Listar Módulo</div>			
+			<div class="inline-middle" style="height: 100%;"></div>
+
+		</div>
+
+	</div>
+	
+	<div style="margin-top: 30px; font-size: 30px; margin-left: 20px;">Aula:</div>
+
+		<div style="width: 100%; text-align: left; margin-top: 30px; padding-left: 20px;">
+
+		<div class="inline-middle btn-item" ng-click="cadastros.cadastroAul()">
+
+			<div class="inline-middle" style="font-size: 20px;">Cadastrar Aula</div>			
+			<div class="inline-middle" style="height: 100%;"></div>
+
+		</div>
+
+		<div class="inline-middle btn-item">
+
+			<div class="inline-middle" style="font-size: 20px;">Listar Aula</div>			
+			<div class="inline-middle" style="height: 100%;"></div>
+
+		</div>
+
+	</div>
+
+</div>
