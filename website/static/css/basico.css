@@ -32,34 +32,19 @@ select{
 }
 
 .item-lista{
-	font-size: 16px;
+	font-size: 14px;
 	height: 40px;
-	cursor: pointer;
+	cursor: pointer;	
 }
 
 .item-lista:hover {
-	background: #d3d3d3;
+	background: #F0FFFF;
 }
 
 .item-lista-selecionado{
-	font-size: 16px;
+	font-size: 14px;
 	height: 40px;
-	background: #FF6347;
-	cursor: pointer;
-}
-
-.item-menu{
-	padding: 10px;
-	color: #FFFFFF;
-	cursor: pointer;
-}
-
-.item-menu:hover {
-	color: #D2B48C;
-}
-
-.item-menu-selecionado{
-	color: #FF6347;
+	background: #00BFFF;
 	cursor: pointer;
 }
 

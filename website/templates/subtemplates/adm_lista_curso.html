@@ -11,17 +11,28 @@
 						
 		<div class="inline-middle" style="width: 30%; color: white; font-size: 18px; margin-left: 10px;">Nome</div>
 		<div class="inline-middle" style="width: 20%; color: white; font-size: 18px;">Professor</div>
-		<div class="inline-middle" style="width: 40%; color: white; font-size: 18px;">Descrição</div>
+		<div class="inline-middle" style="width: 35%; color: white; font-size: 18px;">Descrição</div>
+		<div class="inline-middle" style="width: 5%; color: white; font-size: 18px;">Ações</div>
 		<div class="inline-middle" style="height: 100%;"></div>
 
 	</div>
-	{$listacursos.lista$}
-	<div style="width: 800px; overflow: auto; height: 15em; text-align: left; border: 1px solid #343a40; margin-left: 20px;">
 
-		<div style="width: 100%;" ng-repeat="lis in listacursos.lista" >
-			<div class="inline-middle" style="width: 30%; margin-left: 10px;">{$lis.nome$}</div>
+	<div style="width: 800px; overflow: auto; height: 15em; text-align: left; border: 1px solid #343a40; margin-left: 20px; padding: 0 1px;">
+
+		<div style="width: 100%;" class="{$lis.cla$}" ng-repeat="lis in lista" ng-click="listacursos.selecionaItem(lis)">
+
+			<div class="inline-middle" style="width: 30%; margin-left: 5px;">{$lis.nome$}</div>
 			<div class="inline-middle" style="width: 20%;">{$lis.perfil.nome$}</div>
-			<div class="inline-middle" style="width: 40%;">{$lis.descricao$}</div>
+			<div class="inline-middle" style="width: 35%;">{$lis.descricao$}</div>
+			<div class="inline-middle" style="width: 5%; height: 40px; text-align: center;">
+				<div style="width: 45%;" class="inline-middle">
+					<img src="{% static 'img/trash.png' %}" class="inline-middle" style="width: 100%; height: 18px;"/></div>
+				<div style="width: 45%;" class="inline-middle">
+					<img src="{% static 'img/notepad.png' %}" class="inline-middle" style="width: 100%;height: 18px;"/>
+				</div>
+				
+				<div class="inline-middle" style="height: 100%;"></div>
+			</div>
 			<div class="inline-middle" style="height: 100%;"></div>
 			
 		</div>
