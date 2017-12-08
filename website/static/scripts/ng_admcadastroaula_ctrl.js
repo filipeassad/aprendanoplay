@@ -11,12 +11,16 @@ app.config(['$httpProvider', '$interpolateProvider',
 
 app.controller('AdmCadastroAulaCtrl', function($window, $http, $rootScope, $sce){
 	this.videos = [];
-	this.ipUrlVideo = "https://www.youtube.com/embed/mp28JPs25ek";
-	this.videos.push($sce.trustAsResourceUrl(this.ipUrlVideo));
+	this.ipUrlVideo = "";
+	//this.videos.push($sce.trustAsResourceUrl(this.ipUrlVideo));
 
 
 	this.mostrarVideo = function(){
-		this.videos.splice(0);
+
+        if(this.videos.length > 0){
+            this.videos.splice(0);
+        }
+		
 		this.videos.push($sce.trustAsResourceUrl(this.ipUrlVideo));
 	}
 });
