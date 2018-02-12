@@ -3,7 +3,7 @@ app.config(['$httpProvider', '$interpolateProvider',
     /* for compatibility with django teplate engine */
     $interpolateProvider.startSymbol('{$');
     $interpolateProvider.endSymbol('$}');
-    /* csrf */
+    /* csrf */	
     $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
     $httpProvider.defaults.xsrfCookieName = 'csrftoken';
     //$httpProvider.defaults.withCredentials = true;

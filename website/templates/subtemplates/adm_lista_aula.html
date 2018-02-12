@@ -1,8 +1,15 @@
 {% load staticfiles %}
-<div class="row" style="width: 100%; display: block;">
+<script src="{% static 'scripts/ng_admlistaaula_ctrl.js' %}"></script>
+<div class="row" style="width: 100%; display: block;" ng-controller="AdmListaAulaCtrl">
 
 	<div style="margin-left: 20px; font-size: 40px;">Listagem de Aulas</div>
 	<div style="margin: 0 20px; border-top: 1px solid #DCDCDC;"></div>
+
+	<div style="margin-top: 30px; font-size: 20px; margin-left: 20px;">Filtro Curso:</div>
+	<input type="text" style="margin-left: 20px; border: 1px solid #343a40; padding-left: 5px;" ng-model="curso" ng-change="filtro()">
+
+	<div style="margin-top: 30px; font-size: 20px; margin-left: 20px;">Filtro Módulo:</div>
+	<input type="text" style="margin-left: 20px; border: 1px solid #343a40; padding-left: 5px;" ng-model="modulo" ng-change="filtro()">
 
 	<div style="margin-top: 30px; font-size: 20px; margin-left: 20px;">Selecione uma Aula:</div>
 
@@ -17,10 +24,23 @@
 
 	<div style="width: 800px; overflow: auto; height: 15em; text-align: left; border: 1px solid #343a40; margin-left: 20px;">
 
-		<div style="width: 100%;" >
-			<div class="inline-middle" style="width: 20%; margin-left: 10px;"></div>
-			<div class="inline-middle" style="width: 20%;"></div>
-			<div class="inline-middle" style="width: 55%;"></div>
+		<div style="width: 100%;" class="{$lis.cla$}" ng-repeat="lis in lista">
+
+			<div class="inline-middle" style="width: 30%; margin-left: 5px;">{$lis.nome$}</div>
+			<div class="inline-middle" style="width: 20%;">{$lis.modulo.nome$}</div>
+			<div class="inline-middle" style="width: 35%;">{$lis.modulo.curso.nome$}</div>
+			<div class="inline-middle" style="width: 10%; height: 100%">
+				<div style="width: 100%; height: 100%; text-align: center;">
+
+					<div class="inline-middle" style="width: 35%;" ng-click="excluir(lis)">
+						<img src="{% static 'img/trash.png' %}" class="inline-middle" style="width: 100%;"/></div>
+					<div class="inline-middle" style="width: 35%;" ng-click="editar(lis)">
+						<img src="{% static 'img/notepad.png' %}" class="inline-middle" style="width: 100%;"/>
+					</div>				
+					<div class="inline-middle" style="height: 100%;"></div>
+						
+				</div>
+			</div>
 			<div class="inline-middle" style="height: 100%;"></div>
 			
 		</div>

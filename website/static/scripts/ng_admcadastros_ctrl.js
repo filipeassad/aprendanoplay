@@ -13,14 +13,17 @@ app.controller('AdmCadastrosCtrl', function($window, $http, $rootScope){
 
 	this.cadastroCur = function(){
 		$rootScope.pagina = "cadastrocurso";
+		cursoEditar = null;
 	}
 
 	this.cadastroMod = function(){
 		$rootScope.pagina = "cadastromodulo";
+		moduloEditar = null;
 	}
 
 	this.cadastroAul = function(){
 		$rootScope.pagina = "cadastroaula";
+		aulaEditar = null;
 	}
 
 	this.listarCur = function(){

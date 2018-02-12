@@ -4,6 +4,7 @@ from .import views
 
 urlpatterns = [
 	url(r'^perfil', views.ApiPerfil.as_view()),
+	url(r'^professores', views.ApiProfessor.as_view()),
 	url(r'^endereco', views.ApiEndereco.as_view()),		
 	url(r'^curso', views.ApiCurso.as_view()),		
 	url(r'^modulo', views.ApiModulo.as_view()),

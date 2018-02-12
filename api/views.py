@@ -40,6 +40,12 @@ class ApiPerfil(APIView):
 		serializer = PerfilSerializer(perfil, many=True)
 		return Response(serializer.data)
 
+class ApiProfessor(APIView):
+	def get(self, request, *args, **kwargs):
+		perfil = Perfil.objects.filter(tipo_perfil="Professor")
+		serializer = PerfilSerializer(perfil, many=True)
+		return Response(serializer.data)
+
 class ApiEndereco(APIView):
 	#authentication_classes = (SessionAuthentication, BasicAuthentication)
 	#permission_classes = (IsAuthenticated,)
@@ -67,20 +73,51 @@ class ApiEndereco(APIView):
 		return Response(serializer.data)
 
 class ApiCurso(APIView):
+
 	def post(self, request, *args, **kwargs):
-		
+
 		data = request.data
 		
-		curso = Curso(id_perfil=data.get('id_perfil'),
-					  nome=data.get('nome'),
-					  descricao=data.get('descricao'))
+		if data.get('tp_req') == "inserir": 
 
-		try:
-			curso.save()
-			return HttpResponse("Cadastrado")
-		except:
-			pass
-		return HttpResponse("Nao cadastrou")
+			perfil = Perfil.objects.get(id=data.get('id_perfil'))
+			
+			curso = Curso(id_perfil=perfil,
+						  nome=data.get('nome'),
+						  descricao=data.get('descricao'))
+
+			try:
+				curso.save()
+				return HttpResponse("sucesso")
+			except:
+				pass
+			return HttpResponse("sem sucesso")
+
+		elif data.get('tp_req') == "editar":
+
+			perfil = Perfil.objects.get(id=data.get('id_perfil'))
+			curso = Curso.objects.get(id=data.get('id'))
+			curso.id_perfil = perfil
+			curso.nome = data.get('nome')
+			curso.descricao = data.get('descricao')
+
+			try: 
+				curso.save()
+				return HttpResponse("sucesso")
+			except:
+				pass
+			return HttpResponse("sem sucesso")
+
+		elif data.get('tp_req') == "deletar":
+
+			curso = Curso.objects.get(id=data.get('id'))
+			try:
+				curso.delete()
+				return HttpResponse("sucesso")
+			except:
+				pass
+			return HttpResponse("sem sucesso")
+		return HttpResponse("sem sucesso")
 
 	def get(self, request, *args, **kwargs):
 		curso = Curso.objects.all()
@@ -91,43 +128,115 @@ class ApiModulo(APIView):
 	def post(self, request, *args, **kwargs):
 		
 		data = request.data
-		
-		modulo = Modulo(id_professor=data.get('id_curso'),
-					  nome=data.get('nome'),
-					  descricao=data.get('descricao'))
 
-		try:
-			modulo.save()
-			return HttpResponse("Cadastrado")
-		except:
-			pass
-		return HttpResponse("Nao cadastrou")
+		if data.get('tp_req') == "inserir":
+
+			curso = Curso.objects.get(id=data.get('id_curso'))			
+		
+			modulo = Modulo(id_curso=curso,
+						  nome=data.get('nome'),
+						  descricao=data.get('descricao'))
+
+			try:
+				modulo.save()
+				return HttpResponse("sucesso")
+			except:
+				pass
+			return HttpResponse("sem sucesso")
+
+		if data.get('tp_req') == "editar":
+
+			curso = Curso.objects.get(id=data.get('id_curso'))
+			modulo = Modulo.objects.get(id=data.get('id'))
+
+			modulo.nome = data.get('nome')
+			modulo.descricao = data.get('descricao')
+			modulo.id_curso = curso
+
+			try:
+				modulo.save()
+				return HttpResponse("sucesso")
+			except:
+				pass
+			return HttpResponse("sem sucesso")
+
+		if data.get('tp_req') == "deletar":
+
+			modulo = Modulo.objects.get(id=data.get('id'))
+			try:
+				modulo.delete()
+				return HttpResponse("sucesso")
+			except:
+				pass
+			return HttpResponse("sem sucesso")						
+
+		return HttpResponse("sem sucesso")
 
 	def get(self, request, *args, **kwargs):
+		
 		if request.query_params.get('id') is not None: 
 			print(request.query_params)
+			
 			curso = Curso.objects.get(id=request.query_params.get('id'))
 			modulo = Modulo.objects.filter(id_curso=curso)
 			serializer = ModuloSerializer(modulo, many=True)
 			return Response(serializer.data)
-		return HttpResponse(("Não encontrado").encode('utf8'))
+		else:
+			modulo = Modulo.objects.all()
+			serializer = ModuloSerializer(modulo, many=True)
+			return Response(serializer.data)
+
+		return HttpResponse(("sem sucesso").encode('utf8'))
 
 class ApiAula(APIView):
 	def post(self, request, *args, **kwargs):
 		
 		data = request.data
-		modulo = Modulo.objects.get(id=data.get('id_modulo'))
-		aula = Aula(id_modulo=modulo,
-					  nome=data.get('nome'),
-					  url_aula=data.get('url_aula'),					  
-					  descricao=data.get('descricao'))
 
-		try:
-			aula.save()
-			return HttpResponse("Cadastrado")
-		except:
-			pass
-		return HttpResponse("Nao cadastrou")
+		if data.get('tp_req') == "inserir":
+
+			modulo = Modulo.objects.get(id=data.get('id_modulo'))
+			aula = Aula(id_modulo=modulo,
+						  nome=data.get('nome'),
+						  url_aula=data.get('url_aula'),					  
+						  descricao=data.get('descricao'))
+
+			try:
+				aula.save()
+				return HttpResponse("sucesso")
+			except:
+				pass
+			return HttpResponse("sem sucesso")
+
+		if data.get('tp_req') == "editar":
+
+			modulo = Modulo.objects.get(id=data.get('id_modulo'))
+			aula = Aula.objects.get(id=data.get('id'))
+
+			aula.nome = data.get('nome')
+			aula.descricao = data.get('descricao')
+			aula.id_modulo = modulo
+			aula.url_aula = data.get('url_aula')
+
+			try:
+				aula.save()
+				return HttpResponse("sucesso")
+			except:
+				pass
+			return HttpResponse("sem sucesso")
+
+		if data.get('tp_req') == "deletar":
+			
+			aula = Aula.objects.get(id=data.get('id'))
+			
+			try:
+				aula.delete()
+				return HttpResponse("sucesso")
+			except:
+				pass
+			return HttpResponse("sem sucesso")	 
+
+		return HttpResponse("sem sucesso")
 
 	def get(self, request, *args, **kwargs):
 		aula = Aula.objects.all()

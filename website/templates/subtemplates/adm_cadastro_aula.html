@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <script src="{% static 'scripts/ng_admcadastroaula_ctrl.js' %}"></script>
-<div class="row" style="width: 100%; display: block;" ng-controller="AdmCadastroAulaCtrl as aulas">
+<div class="row" style="width: 100%; display: block;" ng-controller="AdmCadastroAulaCtrl">
 
 	<div style="margin-left: 20px; font-size: 40px;">Cadastro de Aula</div>
 	<div style="margin: 0 20px; border-top: 1px solid #DCDCDC;"></div>
@@ -18,10 +18,11 @@
 
 	<div style="width: 800px; overflow: auto; height: 15em; text-align: left; border: 1px solid #343a40; margin-left: 20px;">
 
-		<div style="width: 100%;" >
-			<div class="inline-middle" style="width: 20%; margin-left: 10px;"></div>
-			<div class="inline-middle" style="width: 20%;"></div>
-			<div class="inline-middle" style="width: 55%;"></div>
+		<div style="width: 100%;" ng-click="selecionaCurso(cur)" class="{$cur.cla$}" ng-repeat="cur in cursos">
+
+			<div class="inline-middle" style="width: 30%; margin-left: 10px;">{$cur.nome$}</div>
+			<div class="inline-middle" style="width: 20%;">{$cur.perfil.nome$}</div>
+			<div class="inline-middle" style="width: 40%;">{$cur.descricao$}</div>
 			<div class="inline-middle" style="height: 100%;"></div>
 			
 		</div>
@@ -29,20 +30,21 @@
 	</div>
 
 	<div style="margin-top: 30px; font-size: 20px; margin-left: 20px;">Módulo:</div>
-	<select  class="caixa-selecao"></select>
+	<select ng-model="moduloSel" ng-options="modulo.nome for modulo in modulos " class="caixa-selecao"></select>
 
 	<div style="margin-top: 30px; font-size: 20px; margin-left: 20px;">Nome Aula:</div>
-	<input type="text" style="margin-left: 20px; border: 1px solid #343a40; padding-left: 5px;">
+	<input type="text" style="margin-left: 20px; border: 1px solid #343a40; padding-left: 5px;" ng-model="nome">
 
 	<div style="margin-top: 30px; font-size: 20px; margin-left: 20px;">Descrição:</div>
-	<input type="text" style="margin-left: 20px; border: 1px solid #343a40; padding-left: 5px;">
+	<input type="text" style="margin-left: 20px; border: 1px solid #343a40; padding-left: 5px;"
+	ng-model="descricao">
 
 	<div style="margin-top: 30px; font-size: 20px; margin-left: 20px;">Url Vídeo:</div>
 
-	<input type="text" style="margin-left: 20px; border: 1px solid #343a40; padding-left: 5px;" ng-model="aulas.ipUrlVideo" my-enter="aulas.mostrarVideo()">
+	<input type="text" style="margin-left: 20px; border: 1px solid #343a40; padding-left: 5px;" ng-model="ipUrlVideo" my-enter="mostrarVideo()">
 
-	<iframe ng-src="{$video$}" width="500" height="250px" class="caixa-reproducao" ng-repeat="video in aulas.videos"></iframe>
+	<iframe ng-src="{$video$}" width="500" height="250px" class="caixa-reproducao" ng-repeat="video in videos"></iframe>
 
-	<button style="width: 200px; margin-left: 20px; margin-top: 30px;" class="botao" >Salvar</button>
+	<button style="width: 200px; margin-left: 20px; margin-top: 30px;" class="botao" ng-click="salvar()">Salvar</button>
 
 </div>

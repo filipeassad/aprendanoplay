@@ -9,12 +9,14 @@ app.config(['$httpProvider', '$interpolateProvider',
     //$httpProvider.defaults.withCredentials = true;
 }]);
 
-app.controller('AdmListaCursoCtrl', function($window, $http, $rootScope, $scope){
-	
-	$scope.lista = [];
-	$scope.selecionado = {};
+app.controller('AdmListaModuloCtrl', function($window, $http, $rootScope, $scope){
 
-	$http({method: 'GET', url: urlServer + 'api/curso', withCredentials: true }).
+	$scope.lista = [];
+	$scope.selecionado = null;
+	var listaaux = [];
+	$scope.curso = "";
+
+	$http({method: 'GET', url: urlServer + 'api/modulo', withCredentials: true }).
 	        success(function(data, status, headers, config) {
 	            
 	            console.log(data);
@@ -30,34 +32,67 @@ app.controller('AdmListaCursoCtrl', function($window, $http, $rootScope, $scope)
 
 	            	}
 	            	$scope.lista = data;
+	            	listaaux = clonaLista(data, listaaux);
 	            }
 
 	    	}).error(function(data, status, headers, config) {
 	        	console.log("Não Funcionou");	        	  
     		});
 
-    $scope.excluir = function(curso){
+	$scope.filtro = function(){
 
-    	var resultado = confirm("Deseja remover o curso: " + curso.nome + " ?");
+		if($scope.curso.length > 0){
+
+			$scope.lista = [];
+
+			for(i=0; i < listaaux.length; i++){
+
+				if(listaaux[i].curso.nome.toUpperCase().includes($scope.curso.toUpperCase())){
+					$scope.lista.push(listaaux[i]);
+				}
+
+			}
+
+		}else{
+			$scope.lista = clonaLista(listaaux, $scope.lista);
+		}		
+
+	}
+
+	var clonaLista = function(lista1, lista2){
+
+		lista2 = [];
+
+		for(i = 0; i < lista1.length; i++){
+			lista2.push(lista1[i]);
+		}
+
+		return lista2;
+
+	}
+
+	$scope.excluir = function(modulo){
+
+		var resultado = confirm("Deseja remover o módulo: " + modulo.nome + " ?");
 
     	if(resultado){
 
     		var obj = {
     		
     			'tp_req': "deletar",
-    			'id': curso.id,
-	    		'nome': curso.nome,
-	    		'descricao': curso.descricao,
-	    		'id_perfil': curso.perfil.id
+    			'id': modulo.id,
+	    		'nome': modulo.nome,
+	    		'descricao': modulo.descricao,
+	    		'id_curso': modulo.curso.id
 
 	    	};
 
-	    	$http({method: 'POST', url: urlServer + 'api/curso', data: obj }).
+	    	$http({method: 'POST', url: urlServer + 'api/modulo', data: obj }).
 		        success(function(data, status, headers, config) {
 		            if(data == "sucesso"){
 		                
-		                alert("Curso removido com sucesso!");
-		                $http({method: 'GET', url: urlServer + 'api/curso', withCredentials: true }).
+		                alert("Módulo removido com sucesso!");
+		                $http({method: 'GET', url: urlServer + 'api/modulo', withCredentials: true }).
 					        success(function(data, status, headers, config) {
 					            
 					            console.log(data);
@@ -73,6 +108,8 @@ app.controller('AdmListaCursoCtrl', function($window, $http, $rootScope, $scope)
 
 					            	}
 					            	$scope.lista = data;
+					            	listaaux = clonaLista(data, listaaux);
+					            	$scope.filtro();
 					            }
 
 					    	}).error(function(data, status, headers, config) {
@@ -80,27 +117,28 @@ app.controller('AdmListaCursoCtrl', function($window, $http, $rootScope, $scope)
 				    		});
 
 		            }else{
-						alert("Não foi possível remover o curso!");			                
+						alert("Não foi possível remover o módulo!");			                
 		            }         
 		        }).
 		        error(function(data, status, headers, config) {
-					alert("Não foi possível remover o curso!");		        	
-		        });	 
+					alert("Não foi possível remover o módulo!");		        	
+		        });
 
     	}
 
-    }
+	}
 
-    $scope.editar = function(curso){
+	$scope.editar = function(modulo){
 
-    	var resultado = confirm("Deseja editar o curso: " + curso.nome + " ?");
+		var resultado = confirm("Deseja editar o módulo: " + modulo.nome + " ?");
 
     	if(resultado){
-    		cursoEditar = curso;
-    		$rootScope.pagina = "cadastrocurso";
+    		moduloEditar = modulo;
+    		$rootScope.pagina = "cadastromodulo";
     	}
 
-    }
-	
+	}
+
+
 
 });

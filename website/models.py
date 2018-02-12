@@ -82,6 +82,9 @@ class Endereco(models.Model):
     cep = models.CharField(max_length=30, blank=True, null=True)
     complemento = models.CharField(max_length=350, blank=True, null=True)
 
+    def __str__(self): 
+        return  self.logradouro.encode('utf8') + (", ").encode('utf8') + str(self.numero).encode('utf8') + (" - ").encode('utf8') + self.cidade.encode('utf8') + (" ").encode('utf8') + self.uf.encode('utf8')
+
     class Meta:
         managed = True
         db_table = 'endereco'
