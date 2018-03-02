@@ -24,3 +24,9 @@ def capivaraadm(request):
 	if request.user.is_authenticated():
 		logado = "sim"
 	return render(request, 'adm_aprenda.html', {'logado':logado})
+
+def index(request):
+	logado = "nao"
+	if request.user.is_authenticated():
+		logado = "sim"
+	return render(request, 'site/index.html', {'logado':logado})
