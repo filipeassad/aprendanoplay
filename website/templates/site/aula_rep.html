@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Aprenda no Play</title>
+	<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static '/css/basico.css' %}" rel="stylesheet">
+</head>
+<body>
+
+	{% include "site/bases/topo.html" %}
+
+	<div style="min-height: calc(100vh - 190px); text-align: center; margin-top: 30px; margin-bottom: 30px;">
+
+		<div class="inline-top" style="width: 10%;">
+
+			<div style="width: 90%; background: #1d4f68; padding: 20px 2px; border: 2px solid #ffd356">
+
+				 <div style="color: #FFFFFF; font-weight: bold; margin-bottom: 10px;">Modulo 01</div>
+				 <img src="{% static 'img/setabaixo.png'%}" width="40">
+				
+			</div>
+
+			<div style="width: 90%; background: #1d4f68; padding: 20px 2px; border: 2px solid #ffd356">
+
+				 <div style="color: #FFFFFF; font-weight: bold; margin-bottom: 10px;">Modulo 02</div>
+				 <img src="{% static 'img/setabaixo.png'%}" width="40">
+				
+			</div>
+
+			<div style="width: 90%; background: #1d4f68; padding: 20px 2px; border: 2px solid #ffd356">
+
+				 <div style="color: #FFFFFF; font-weight: bold; margin-bottom: 10px;">Modulo 03</div>
+				 <img src="{% static 'img/setabaixo.png'%}" width="40">
+				
+			</div>
+
+			<div style="width: 90%; background: #1d4f68; padding: 20px 2px; border: 2px solid #ffd356">
+
+				 <div style="color: #FFFFFF; font-weight: bold; margin-bottom: 10px;">Modulo 04</div>
+				 <img src="{% static 'img/setabaixo.png'%}" width="40">
+				
+			</div>
+			
+			<div style="width: 90%; background: #1d4f68; padding: 20px 2px; border: 2px solid #ffd356">
+
+				 <div style="color: #FFFFFF; font-weight: bold; margin-bottom: 10px;">Modulo 05</div>
+				 <img src="{% static 'img/setabaixo.png'%}" width="40">
+				
+			</div>
+
+			<div style="width: 90%; background: #1d4f68; padding: 20px 2px; border: 2px solid #ffd356">
+
+				 <div style="color: #FFFFFF; font-weight: bold; margin-bottom: 10px;">Modulo 06</div>
+				 <img src="{% static 'img/setabaixo.png'%}" width="40">
+				
+			</div>
+
+			<div style="width: 90%; background: #1d4f68; padding: 20px 2px; border: 2px solid #ffd356">
+
+				 <div style="color: #FFFFFF; font-weight: bold; margin-bottom: 10px;">Modulo 07</div>
+				 <img src="{% static 'img/setabaixo.png'%}" width="40">
+				
+			</div>
+
+		</div>
+
+		<div class="inline-top" style="width: 60%;">
+			
+			<div style="width: 100%; background: #dddddd; height: 400px;">
+				<!-- 
+					Colocar o vídeo aqui!
+				-->
+			</div>
+
+			<div style="width: 100%; margin-top: 20px; background: #ffd356; padding: 20px 2px; text-align: center;">
+
+				<div style="color: #1d4f68; font-size: 20px; font-weight: bold; margin-left: 20px;" class="inline-middle">Nome do Curso</div>
+				<img src="{% static 'img/esq.png'%}" style="margin-left: 70px;" height="40">
+				<div style="color: #1d4f68; font-size: 20px; margin: 0 20px;" class="inline-middle">Módulo 01 - Aula 24</div>
+				<img src="{% static 'img/dir.png'%}" height="40" style="margin-right: 50px;">
+				<img src="{% static 'img/iccaderno.png'%}" height="50" style="margin: 0px 20px;">				
+				<img src="{% static 'img/iccarta.png'%}" height="50">
+			</div>
+
+		</div>
+		
+
+	</div>
+
+	{% include "site/bases/rodape.html" %}
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+</body>
+</html>

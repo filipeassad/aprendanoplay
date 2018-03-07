@@ -10,4 +10,6 @@ urlpatterns = [
 	url(r'^login/', views.login),
 	url(r'^detalhe_curso/', views.detalhe_curso),
 	url(r'^lista_cursos/', views.lista_cursos),
+	url(r'^area_aluno/', views.area_aluno),
+	url(r'^aula_rep/', views.aula_rep),
 ]

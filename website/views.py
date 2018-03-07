@@ -48,3 +48,15 @@ def lista_cursos(request):
 	if request.user.is_authenticated():
 		logado = "sim"
 	return render(request, 'site/lista_cursos.html', {'logado':logado})
+
+def area_aluno(request):
+	logado = "nao"
+	if request.user.is_authenticated():
+		logado = "sim"
+	return render(request, 'site/area_aluno.html', {'logado':logado})
+
+def aula_rep(request):
+	logado = "nao"
+	if request.user.is_authenticated():
+		logado = "sim"
+	return render(request, 'site/aula_rep.html', {'logado':logado})
