@@ -4,7 +4,10 @@ from .import views
 
 
 urlpatterns = [
-	url(r'^cadastroaula', views.cadastroaula),
-	url(r'^capivara_adm', views.capivaraadm),
-	url(r'', views.index),
+	url(r'^$', views.index),
+	url(r'^cadastroaula/', views.cadastroaula),
+	url(r'^capivara_adm/', views.capivaraadm),
+	url(r'^login/', views.login),
+	url(r'^detalhe_curso/', views.detalhe_curso),
+	url(r'^lista_cursos/', views.lista_cursos),
 ]

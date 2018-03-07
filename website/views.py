@@ -30,3 +30,21 @@ def index(request):
 	if request.user.is_authenticated():
 		logado = "sim"
 	return render(request, 'site/index.html', {'logado':logado})
+
+def login(request):
+	logado = "nao"
+	if request.user.is_authenticated():
+		logado = "sim"
+	return render(request, 'site/login.html', {'logado':logado})
+
+def detalhe_curso(request):
+	logado = "nao"
+	if request.user.is_authenticated():
+		logado = "sim"
+	return render(request, 'site/detalhe_curso.html', {'logado':logado})
+
+def lista_cursos(request):
+	logado = "nao"
+	if request.user.is_authenticated():
+		logado = "sim"
+	return render(request, 'site/lista_cursos.html', {'logado':logado})

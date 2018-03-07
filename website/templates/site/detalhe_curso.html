@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Aprenda no Play</title>
+	<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static '/css/basico.css' %}" rel="stylesheet">
+</head>
+<body style="text-align: center;">
+
+	{% include "site/bases/topo.html" %} 
+
+	<h1 style="text-align: left; margin-top: 30px; padding: 0px; color: #1d4f68; width: 84%; display: inline-block;"> Curso de Bateria - Iniciante</h1>
+
+	<div style="text-align: center;">
+
+		<div class="inline-top" style="width: 40%; margin: 10px 20px;">		
+			<h3 style="text-align: left; margin-top: 20px; color: #1d4f68">O que vou aprender?</h3>
+
+			<p style="text-align: left; margin-top: 10px; color: #1d4f68">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			<h3 style="text-align: left; margin-top: 20px; color: #1d4f68">Requisitos</h3>
+
+			<ul style="padding-left: 30px; text-align: left; margin-top: 10px; color: #1d4f68">
+				<li>Curso Coordenação Motora</li>
+				<li>Ter dois braços</li>
+			</ul>
+
+			<h3 style="text-align: left; margin-top: 20px; color: #1d4f68">Descrição</h3>
+
+			<p style="text-align: left; margin-top: 10px; color: #1d4f68">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			<ul style="padding-left: 30px; text-align: left; margin-top: 10px; color: #1d4f68">
+				<li>Módulo 01 - Como pegar na baqueta</li>
+				<li>Módulo 02 - Peças da bateria</li>
+				<li>Módulo 03 - Estudando os quatro tempos</li>
+				<li>Módulo 04 - Papa Mama</li>
+				<li>Módulo 05 - Pivot</li>
+			</ul>
+
+			<h3 style="text-align: left; margin-top: 20px; color: #1d4f68">Sobre o professor</h3>
+
+			<div style="width: 100%; text-align: left; margin-top: 20px; color: #1d4f68;">
+
+				<div class="inline-top" style="width: 30%;">
+					<img src="{% static 'img/chimbinha.jpg'%}" width="100" height="100" class="img-circle">
+					<div style="margin-top: 10px; font-weight: bold;">Prof. Chimbinha</div>
+					<div style="margin-top: 10px; font-size: 10px;">44 anos</div>
+					<div style="font-size: 10px;">Ex da Joelma</div>					
+					<div style="font-size: 10px;">34 anos de guitarra</div>
+					<div style="font-size: 10px;">1.400.000 de alunos</div>
+					<div style="font-size: 10px;">Ensinou Steve Vai a tocar guitarra</div>
+				</div>
+
+				<div class="inline-top" style="width: 60%; margin-left: 20px;">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+				
+			</div>
+
+		</div>
+
+		<div class="inline-top" style="width: 40%;  margin: 10px 20px;">
+
+			<h3 style="text-align: center; margin-top: 20px; color: #1d4f68">Planos de Assinatura</h3>
+
+			<div style="text-align: center; width: 100%; margin-top: 30px;">
+
+				<div style="width:150px; height: 500px; margin: 0px 10px; border: 1px solid #ffd356;" class="inline-top">
+					
+					<div style="width: 100%; background: #ffd356; height: 20%;">
+						<img src="{% static 'img/bolinhabranca.png'%}" width="20%" style="margin-top: 20px;">
+						<div style="margin-top: 10px; color: #1d4f68; font-weight: bold;">MENSAL</div>
+					</div>
+
+					<div style="width: 100%; height: 70%; margin-top: 20px;">
+						<div style="height: 70%; color: #1d4f68; font-size: 10px; padding: 0px 2px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua.</div>
+						<div style="color: #1d4f68; font-size: 18px; font-weight: bold; margin-top: 20px;">$45,00</div>
+						<button style="background: #ffd356; color: #1d4f68; border: 1px solid transparent; border-radius: 15px; padding: 10px; margin-top: 20px; font-weight: bold;">COMPRAR</button>
+					</div>
+
+				</div>
+
+				<div style="width:150px; height: 500px; margin: 0px 10px; border: 1px solid #ffd356;" class="inline-top">
+					
+					<div style="width: 100%; background: #ffd356; height: 20%;">
+						<img src="{% static 'img/bolinhabranca.png'%}" width="20%" style="margin-top: 20px;">
+						<div style="margin-top: 10px; color: #1d4f68; font-weight: bold;">SEMESTRAL</div>
+					</div>
+
+					<div style="width: 100%; height: 70%; margin-top: 20px;">
+						<div style="height: 70%; color: #1d4f68; font-size: 10px; padding: 0px 2px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua.</div>
+						<div style="color: #1d4f68; font-size: 18px; font-weight: bold; margin-top: 20px;">$258,00</div>
+						<button style="background: #ffd356; color: #1d4f68; border: 1px solid transparent; border-radius: 15px; padding: 10px; margin-top: 20px; font-weight: bold;">COMPRAR</button>
+					</div>
+
+				</div>
+
+				<div style="width:150px; height: 500px; margin: 0px 10px; border: 1px solid #ffd356;" class="inline-top">
+					
+					<div style="width: 100%; background: #ffd356; height: 20%;">
+						<img src="{% static 'img/bolinhabranca.png'%}" width="20%" style="margin-top: 20px;">
+						<div style="margin-top: 10px; color: #1d4f68; font-weight: bold;">ANUAL</div>
+					</div>
+
+					<div style="width: 100%; height: 70%; margin-top: 20px;">
+						<div style="height: 70%; color: #1d4f68; font-size: 10px; padding: 0px 2px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua.</div>
+						<div style="color: #1d4f68; font-size: 18px; font-weight: bold; margin-top: 20px;">$480,00</div>
+						<button style="background: #ffd356; color: #1d4f68; border: 1px solid transparent; border-radius: 15px; padding: 10px; margin-top: 20px; font-weight: bold;">COMPRAR</button>
+					</div>
+
+				</div>
+				
+			</div>
+			
+		</div>
+
+	</div>
+
+	
+
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>  
+
+</body>
+</html>
