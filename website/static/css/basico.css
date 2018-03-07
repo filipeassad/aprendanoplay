@@ -9,6 +9,11 @@
 	margin: 0px 20px;
 }
 
+.texto-footer{
+	font-size: 10px;
+	color: #FFFFFF;
+}
+
 .inline-middle{	
 	display: inline-block;
 	vertical-align: middle;
